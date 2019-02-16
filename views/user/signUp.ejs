@@ -1,0 +1,66 @@
+<%- include(header) %>
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col col-lg-8">
+            <div class="signup-form text-center">
+                <h1 class="form-signin-heading gray-text">Sign Up</h1>
+                <form id="signUp-form"
+                      class="signUp-form"
+                      action="<%- postURL %>"
+                      method="post">
+                    <div class="row">
+                        <div class="col col-lg-6">
+                            <label for="email">Email</label>
+                            <input type="email"
+                                   name="email"
+                                   placeholder="Email Address"
+                                   required="yes" />
+                        </div>
+                        <div class="col col-lg-6">
+                            <label for="password">Password</label>
+                            <input type="password"
+                                   name="password"
+                                   placeholder="Password"
+                                   required="yes" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-lg-6">
+                            <label for="firstName">First Name</label>
+                            <input type="text"
+                                   name="firstname"
+                                   placeholder="Name"
+                                   required="yes" />
+                        </div>
+                        <div class="col col-lg-6">
+                            <label for="lastName">Last Name</label>
+                            <input type="text"
+                                   name="lastname"
+                                   placeholder="Name"
+                                   required="yes" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col col-lg-6">
+                            <label for="phone">Phone</label>
+                            <input type="phone"
+                                   name="phone"
+                                   placeholder="Phone"
+                                   required="yes" />
+                        </div>
+
+                    </div>
+
+                    <div class="signup-btn-group">
+                        <p> Already a member? <a href="/user/signIn">Sign in!</a>
+                        </p>
+                        <button type="submit"
+                                class="btn btn-yt-red signup-btn btn-lg">Sign Up</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include(footer) %>

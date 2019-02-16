@@ -1,0 +1,25 @@
+<%- include(header) %>
+<div class="login-form text-center">
+    <h1 class="form-signin-heading gray-text">Sign In</h1>
+    <form class="signin-form"
+          action="<%- postURL %>"
+          method="post">
+        <label for="email text-left">Email</label><br />
+        <input type="email"
+               name="email"
+               placeholder="Email Address"
+               required="yes" /><br />
+        <label for="password">Password</label><br />
+        <input type="password"
+               name="password"
+               placeholder="Password"
+               required="yes" /><br />
+        <div class="signin-btn-group">
+            <p>Not a member? <a href="/user/signUp">Sign up!</a>
+                        </p>
+            <button type="submit"
+                    class="btn btn-yt-red signin-btn btn-lg">Sign In</button>
+        </div>
+    </form>
+</div>
+<%- include(footer) %>

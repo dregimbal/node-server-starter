@@ -1,0 +1,18 @@
+<%- include(header) %>
+<div class="col col-lg-3 profile-container text-center">
+    <h3 class="display-4 gray-text profile-name">
+        <%= user.name %>
+    </h3>
+    <div class="profile-picture">
+        <image src="https://api.adorable.io/avatars/<%=user.id %>" />
+    </div>
+    <div>
+        <% if(user.email){ %>
+        <div class="profileInfo"><span class="profileLabel">Email:</span> <%= user.email %></div>
+        <% } %>
+        <% if(user.name){ %>
+        <div class="profileInfo"><span class="profileLabel">Name:</span> <%= user.name %></div>
+        <% } %>
+    </div>
+</div>
+<%- include(footer) %>
