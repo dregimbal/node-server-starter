@@ -33,7 +33,7 @@ app.use(session({
 }))
 
 // Configure Passport for user auth
-require('./config/passport')(passport, db)
+require('./config/passport')(passport)
 app.use(passport.initialize())
 app.use(passport.session())
 
@@ -56,7 +56,7 @@ app.use(function (req, res, next) {
 })
 
 // Routing
-require('./routes/index.js')(app)
+app.use(require('./routes/index.js'))
 
 // Start listening for requests
 const listener = app.listen(8080, function () {

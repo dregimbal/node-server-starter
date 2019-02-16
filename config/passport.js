@@ -1,24 +1,25 @@
-let LocalStrategy = require('passport-local').Strategy
+module.exports = function (passport) {
+    let LocalStrategy = require('passport-local').Strategy
+    let db = require('./database')
 
-module.exports = function (passport, db) {
     passport.use('user', new LocalStrategy({
-        passReqToCallback: true,
+        passReqToCallback: false,
         passwordField: 'password',
         usernameField: 'email'
     },
-    (email, password, done) => {
-        db.findUserByEmail(email)
-            .then(user => {
-                db.hashPassword(password)
-                    .then(pass => {
-                        if (pass !== user.userPassword) {
-                            return done(null, false, { message: 'Invalid credentials.\n' });
-                        }
-                        return done(null, user)
-                    })
-            })
-            .catch(error => done(error))
-    }
+        (email, password, done) => {
+            db.findUserByEmail(email)
+                .then(user => {
+                    db.hashPassword(password)
+                        .then(pass => {
+                            if (pass !== user.userPassword) {
+                                return done(null, false, { message: 'Invalid credentials.\n' });
+                            }
+                            return done(null, user)
+                        })
+                })
+                .catch(error => done(error))
+        }
     ))
 
     // serialize the user for the session

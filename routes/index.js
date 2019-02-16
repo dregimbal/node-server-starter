@@ -1,19 +1,22 @@
-module.exports = function (app) {
-    app.use('/admin', require('./admin'))
-    app.use('/user', require('./user'))
+var express = require('express')
+var router = express.Router()
 
-    // Home
-    app.get('/', function (req, res) {
-        res.render('index')
-    })
+router.use('/admin', require('./admin'))
+router.use('/user', require('./user'))
 
-    // About
-    app.get('/about', function (req, res) {
-        res.render('about', { title: 'About This Site' })
-    })
+// Home
+router.get('/', function (req, res) {
+    res.render('index')
+})
 
-    // 404 Page
-    app.get('*', function (req, res) {
-        res.status(404).send('404 - Unknown Page')
-    })
-}
+// About
+router.get('/about', function (req, res) {
+    res.render('about', { title: 'About This Site' })
+})
+
+// 404 Page
+router.get('*', function (req, res) {
+    res.status(404).send('404 - Unknown Page')
+})
+
+module.exports = router
